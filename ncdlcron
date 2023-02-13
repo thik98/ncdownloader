@@ -1,0 +1,1 @@
+*/2 * * * * . /env.sh && cd /root/src && /usr/bin/python3 /root/src/startup.py >> /root/src/log.txt 2>&1

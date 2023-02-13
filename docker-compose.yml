@@ -1,0 +1,19 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'python3'
+    working_dir: '/root/src'
+    tty: true
+    volumes:
+      - ${SRC_PATH}:/root/src
+      - ./ncdlcron:/etc/cron.d/ncdlcron
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: "Asia/Tokyo"
+      DAV_USER: ${DAV_USER}
+      DAV_PASS: ${DAV_PASS}
+      DAV_SERVER: ${DAV_SERVER}
+    devices:
+      - /dev/dri:/dev/dri
