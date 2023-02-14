@@ -138,6 +138,8 @@ if client.check(remotepath):
     print("Download Start!")
     # コンテンツのurlをdownload
     client.download(remotepath,localpath)
+    # 取り込んだので先にurlを削除
+    client.clean(remotepath)
     # コンテンツのurlを解析
     url = parseurl(localpath)
     # ダウンロード開始。戻り値はダウンロード後のファイル名
@@ -152,7 +154,5 @@ if client.check(remotepath):
     retname = cnvaudio(filename)
     # 音声をアップロード
     uploadaudiofile(retname)
-    # 完了したのでurlを削除
-    client.clean(remotepath)
     dt_now = datetime.datetime.now()
     print(dt_now)
