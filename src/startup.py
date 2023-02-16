@@ -38,7 +38,7 @@ def parseurl(urlfile):
 # 戻り値：string outputしたファイル名
 def ffmpeg_cnv_minivideo(inputfilename , outputfilename):
     # ffmpegコマンドライン文字列作成
-    cmd = 'ffmpeg -y -vaapi_device /dev/dri/renderD128 -i "{0}" -vf \'hwupload,scale_vaapi=w=720:h=-2:format=nv12\' -c:v h264_vaapi -qp 25 -c:a libfdk_aac -b:a 192k "{1}"'.format(inputfilename , outputfilename)
+    cmd = 'ffmpeg -y -vaapi_device /dev/dri/renderD128 -i "{0}" -vf \'hwupload,scale_vaapi=w=768:h=-2:format=nv12\' -c:v h264_vaapi -qp 25 -c:a libfdk_aac -b:a 192k "{1}"'.format(inputfilename , outputfilename)
     # コマンドを実行する
     subprocess.run(cmd, shell=True)
     return outputfilename
